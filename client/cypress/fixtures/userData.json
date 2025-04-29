@@ -1,0 +1,14 @@
+{
+    "normalUser": {
+        "email": "test@test.com",
+        "password": "test123"
+    },
+    "adminUser": {
+        "email": "admin@test.com",
+        "password": "test123"
+    },
+    "userNull":{
+        "email": " ",
+        "password": " "
+    }
+}
