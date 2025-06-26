@@ -1,0 +1,14 @@
+{
+    "places": {
+        "first": "0",
+        "second": "1",
+        "third": "2"
+    },
+
+    "wrong": {
+        "negative": "-10",
+        "especial": "e",
+        "floatOne": "3,4",
+        "floatTwo": "3.434"
+    }
+}
