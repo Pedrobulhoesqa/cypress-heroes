@@ -7,6 +7,7 @@ class LoginPage {
             loginModal: '.modal-container',
             emailField:"[data-cy='email']",
             passwordField:"[data-cy='password']",
+            wrongCredentials: ".text-red-500"
         }
         
         return selectorsHome
@@ -34,13 +35,16 @@ class LoginPage {
     }
 
     clickSignIn() {
-        cy.get(this.selectorsList().signInButton).contains('Sign in').click().wait(1000)
+        cy.get(this.selectorsList().signInButton).contains('Sign in').click().wait(1500)
     }
 
     clickLogoutButton() {
         cy.get(this.selectorsList().logoutButton).click()
     }
-  
+
+    wrongCredentials() {
+        cy.get(this.selectorsList().wrongCredentials).should('be.visible')
+    }
 }
 
 export default LoginPage

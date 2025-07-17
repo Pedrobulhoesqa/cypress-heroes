@@ -22,24 +22,39 @@ describe('Logout User Interactions', () => {
 })
 
 describe('Normal User Interactions', () => {
-  it('Like Button', () => {    
+  it.only('Like Button', () => {    
     loginPage.accessHomePage()
     loginPage.checkHomePage()
     loginPage.clickLoginButton()
     loginPage.fillEmail(userData.normalUser.email)
     loginPage.fillPassword(userData.normalUser.password)
     loginPage.clickSignIn()
-    //loginPage.clickLogoutButton()
+    lobbyPage.clickLikeButtonHeroSuccess(numbersData.places.first)
+    //comprar mudança de numero
   })
 
-  it('Money Button', () => {    
+  it('Money Button Confirm', () => {    
     loginPage.accessHomePage()
     loginPage.checkHomePage()
     loginPage.clickLoginButton()
     loginPage.fillEmail(userData.normalUser.email)
     loginPage.fillPassword(userData.normalUser.password)
     loginPage.clickSignIn()
-    //loginPage.clickLogoutButton()
+    lobbyPage.clickMoneyButtonHero(numbersData.places.first)
+    lobbyPage.clickYesHireButton(numbersData.places.first)
+    //comparar mudança de número
+  })
+
+  it('Money Button Decline', () => {    
+    loginPage.accessHomePage()
+    loginPage.checkHomePage()
+    loginPage.clickLoginButton()
+    loginPage.fillEmail(userData.normalUser.email)
+    loginPage.fillPassword(userData.normalUser.password)
+    loginPage.clickSignIn()
+    lobbyPage.clickMoneyButtonHero(numbersData.places.first)
+    lobbyPage.clickNoButton()
+    //comparar mudança de número
   })
 })
 

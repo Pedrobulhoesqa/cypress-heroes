@@ -34,7 +34,7 @@ describe('Wrong Credentials', () => {
     loginPage.fillEmail(userData.wrongUser.email)
     loginPage.fillPassword(userData.wrongUser.password)
     loginPage.clickSignIn()
-    //alert error
+    loginPage.wrongCredentials()
   })
 
   it('Wrong email and Correct password', () => {    
@@ -44,7 +44,7 @@ describe('Wrong Credentials', () => {
     loginPage.fillEmail(userData.wrongUser.email)
     loginPage.fillPassword(userData.wrongUser.password)
     loginPage.clickSignIn()
-    //alert error
+    loginPage.wrongCredentials()
   })
 
   it('Wrong email and password', () => {    
@@ -54,7 +54,7 @@ describe('Wrong Credentials', () => {
     loginPage.fillEmail(userData.wrongUser.email)
     loginPage.fillPassword(userData.wrongUser.password)
     loginPage.clickSignIn()
-    //alert error
+    loginPage.wrongCredentials()
   })
 
   it('No email and password', () => {    
@@ -62,7 +62,7 @@ describe('Wrong Credentials', () => {
     loginPage.checkHomePage()
     loginPage.clickLoginButton()
     loginPage.clickSignIn()
-    //alert error
+    loginPage.wrongCredentials()
   })
 })
 

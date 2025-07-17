@@ -15,7 +15,7 @@ export const ConfirmHireModal: React.FC<ConfirmHireModalProps> = ({
   onDismiss,
 }) => {
   return (
-    <div className="flex flex-col gap-4 text-center">
+    <div className="flex flex-col gap-4 text-center" data-cy='modalHire'>
       <h3 className="text-lg leading-6 font-medium text-gray-900">
         Hire Hero?
       </h3>
@@ -27,10 +27,10 @@ export const ConfirmHireModal: React.FC<ConfirmHireModalProps> = ({
       </div>
 
       <div className="flex gap-2 justify-end">
-        <Button color="danger" onClick={onHire}>
+        <Button color="danger" data-cy='yesButton' onClick={onHire}>
           Yes
         </Button>
-        <Button color="outline" onClick={onDismiss}>
+        <Button color="outline" data-cy='noButton' onClick={onDismiss}>
           No
         </Button>
       </div>
