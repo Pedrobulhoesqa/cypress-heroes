@@ -35,7 +35,7 @@ class LoginPage {
     }
 
     clickSignIn() {
-        cy.get(this.selectorsList().signInButton).contains('Sign in').click().wait(1500)
+        cy.get(this.selectorsList().signInButton).contains('Sign in').click().wait(800)
     }
 
     clickLogoutButton() {

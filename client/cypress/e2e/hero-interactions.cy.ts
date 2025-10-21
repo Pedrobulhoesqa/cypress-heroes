@@ -1,14 +1,10 @@
 import LoginPage from '../pages/loginPage.js'
 import LobbyPage from '../pages/lobbyPage.js'
-//import editPage from '../pages/editPage.js'
-//import createPage from '../pages/createPage.js'
 import numbersData from '../fixtures/numbersData.json'
 import userData from '../fixtures/userData.json'
 
 const loginPage = new LoginPage()
 const lobbyPage = new LobbyPage()
-//const editPage = new EditPage()
-//const createPage = new CreatePage()
 
 describe('Logout User Interactions', () => {
   it('Like and Money Button', () => {    
@@ -22,7 +18,7 @@ describe('Logout User Interactions', () => {
 })
 
 describe('Normal User Interactions', () => {
-  it.only('Like Button', () => {    
+  it('Like Button', () => {    
     loginPage.accessHomePage()
     loginPage.checkHomePage()
     loginPage.clickLoginButton()
@@ -30,7 +26,6 @@ describe('Normal User Interactions', () => {
     loginPage.fillPassword(userData.normalUser.password)
     loginPage.clickSignIn()
     lobbyPage.clickLikeButtonHeroSuccess(numbersData.places.first)
-    //comprar mudança de numero
   })
 
   it('Money Button Confirm', () => {    
@@ -42,7 +37,6 @@ describe('Normal User Interactions', () => {
     loginPage.clickSignIn()
     lobbyPage.clickMoneyButtonHero(numbersData.places.first)
     lobbyPage.clickYesHireButton(numbersData.places.first)
-    //comparar mudança de número
   })
 
   it('Money Button Decline', () => {    
@@ -53,8 +47,7 @@ describe('Normal User Interactions', () => {
     loginPage.fillPassword(userData.normalUser.password)
     loginPage.clickSignIn()
     lobbyPage.clickMoneyButtonHero(numbersData.places.first)
-    lobbyPage.clickNoButton()
-    //comparar mudança de número
+    lobbyPage.clickNoButton(numbersData.places.first)
   })
 })
 
@@ -66,24 +59,51 @@ describe('Admin User Interactions', () => {
     loginPage.fillEmail(userData.adminUser.email)
     loginPage.fillPassword(userData.adminUser.password)
     loginPage.clickSignIn()
+    lobbyPage.clickLikeButtonHeroSuccess(numbersData.places.first)
   })
   
-  it('Money Button', () => {    
+  it('Money Button Confirm', () => {    
     loginPage.accessHomePage()
     loginPage.checkHomePage()
     loginPage.clickLoginButton()
     loginPage.fillEmail(userData.adminUser.email)
     loginPage.fillPassword(userData.adminUser.password)
     loginPage.clickSignIn()
+    lobbyPage.clickMoneyButtonHero(numbersData.places.first)
+    lobbyPage.clickYesHireButton(numbersData.places.first)
   })
-  
-  it('Trash Button', () => {    
+
+  it('Money Button Decline', () => {    
     loginPage.accessHomePage()
     loginPage.checkHomePage()
     loginPage.clickLoginButton()
     loginPage.fillEmail(userData.adminUser.email)
     loginPage.fillPassword(userData.adminUser.password)
     loginPage.clickSignIn()
+    lobbyPage.clickMoneyButtonHero(numbersData.places.first)
+    lobbyPage.clickNoButton(numbersData.places.first)
+  })
+  
+  it('Trash Button Confirm', () => {    
+    loginPage.accessHomePage()
+    loginPage.checkHomePage()
+    loginPage.clickLoginButton()
+    loginPage.fillEmail(userData.adminUser.email)
+    loginPage.fillPassword(userData.adminUser.password)
+    loginPage.clickSignIn()
+    lobbyPage.clickTrashButton(numbersData.places.first)
+    lobbyPage.clickYesTrashButton()
+  })
+
+  it('Trash Button Decline', () => {    
+    loginPage.accessHomePage()
+    loginPage.checkHomePage()
+    loginPage.clickLoginButton()
+    loginPage.fillEmail(userData.adminUser.email)
+    loginPage.fillPassword(userData.adminUser.password)
+    loginPage.clickSignIn()
+    lobbyPage.clickTrashButton(numbersData.places.first)
+    lobbyPage.clickNoTrashButton()
   })
   
   it('Pencil Button', () => {    
@@ -93,5 +113,16 @@ describe('Admin User Interactions', () => {
     loginPage.fillEmail(userData.adminUser.email)
     loginPage.fillPassword(userData.adminUser.password)
     loginPage.clickSignIn()
+    lobbyPage.clickEditButton(numbersData.places.first)
+  })
+  
+  it('Create Hero Button', () => {    
+    loginPage.accessHomePage()
+    loginPage.checkHomePage()
+    loginPage.clickLoginButton()
+    loginPage.fillEmail(userData.adminUser.email)
+    loginPage.fillPassword(userData.adminUser.password)
+    loginPage.clickSignIn()
+    lobbyPage.clickCreateHeroButton()
   })
 })
