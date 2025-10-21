@@ -7,8 +7,8 @@ class HeroPage {
             savesField: "[data-cy='savesInput']",
             powersSelector: "[data-cy='powersSelect']",
             avatarField:  "[data-cy='avatarFile']",
-            submitButton: "button",
-            alertCreatNotification: ".text-red-500"
+            pageButtons: "button",
+            alertCreatNotification: ".text-red-500",
         }
         
         return selectorsHero
@@ -37,6 +37,14 @@ class HeroPage {
     selectAvatar() {
         cy.get(this.selectorsList().avatarField).click()
     }  
+    
+    submitHero() {
+        cy.get(this.selectorsList().pageButtons).contains("Submit").click()
+    }
+    
+    deleteHero() {
+        cy.get(this.selectorsList().pageButtons).contains("Delete Hero").click()
+    }
 }
 
 export default HeroPage

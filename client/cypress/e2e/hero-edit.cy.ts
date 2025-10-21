@@ -9,7 +9,7 @@ const lobbyPage = new LobbyPage()
 const heroPage = new HeroPage()
 
 describe('Edit Hero', () => {
-  it.only('Fields functions', () => {    
+  it('Edit Fields and Submit', () => {    
     loginPage.accessHomePage()
     loginPage.checkHomePage()
     loginPage.clickLoginButton()
@@ -23,5 +23,21 @@ describe('Edit Hero', () => {
     heroPage.fillSavesField()
     heroPage.selectPowers()
     heroPage.selectAvatar()
+  })
+
+  it.only('Delete Hero', () => {    
+    loginPage.accessHomePage()
+    loginPage.checkHomePage()
+    loginPage.clickLoginButton()
+    loginPage.fillEmail(userData.adminUser.email)
+    loginPage.fillPassword(userData.adminUser.password)
+    loginPage.clickSignIn()
+    lobbyPage.clickEditButton(numbersData.places.first)
+    heroPage.deleteHero()
+    lobbyPage.clickYesTrashButton()
+  })
+
+  it('Fail cases', () => {
+
   })
 })

@@ -9,7 +9,7 @@ const lobbyPage = new LobbyPage()
 const heroPage = new HeroPage()
 
 describe('Create a New Hero', () => {
-    it.only('Fields functions', () => {    
+    it('Submit New Hero', () => {    
     loginPage.accessHomePage()
     loginPage.checkHomePage()
     loginPage.clickLoginButton()
@@ -18,6 +18,14 @@ describe('Create a New Hero', () => {
     loginPage.clickSignIn()
     lobbyPage.clickEditButton(numbersData.places.first)
     heroPage.fillNameField()
-  
+    heroPage.fillPriceField()
+    heroPage.fillFansField()
+    heroPage.fillSavesField()
+    heroPage.selectPowers()
+    heroPage.selectAvatar()
   })
+
+    it('Fail cases', () => {
+
+    })
 })
