@@ -11,5 +11,19 @@
     "wrongUser": {
         "email": "wrong@test.com",
         "password": "wrongtest123"
+    },
+
+    "herosList": {
+        "one": "Hero One",
+        "two": "Double Trouble",
+        "three": "Triple Trix"
+    },
+
+    "alertNotification": {
+        "name": "Name is required",
+        "price": "Price is required",
+        "fans": "Fans is required",
+        "saves": "Saves is required",
+        "powers": "Powers is required"
     }
 }

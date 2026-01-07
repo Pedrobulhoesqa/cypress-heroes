@@ -17,12 +17,13 @@ describe('Edit Hero', () => {
     loginPage.fillPassword(userData.adminUser.password)
     loginPage.clickSignIn()
     lobbyPage.clickEditButton(numbersData.places.first)
-    heroPage.fillNameField()
+    heroPage.fillNameField(userData.herosList.three)
     heroPage.fillPriceField()
     heroPage.fillFansField()
     heroPage.fillSavesField()
     heroPage.selectPowers()
     heroPage.selectAvatar()
+    heroPage.submitHero()
   })
 
   it.only('Delete Hero', () => {    
@@ -32,12 +33,24 @@ describe('Edit Hero', () => {
     loginPage.fillEmail(userData.adminUser.email)
     loginPage.fillPassword(userData.adminUser.password)
     loginPage.clickSignIn()
-    lobbyPage.clickEditButton(numbersData.places.first)
+    lobbyPage.clickEditButton(userData.herosList.three)
     heroPage.deleteHero()
     lobbyPage.clickYesTrashButton()
   })
 
-  it('Fail cases', () => {
-
+  it('Alert notification Fiels required', () => {
+    loginPage.accessHomePage()
+    loginPage.checkHomePage()
+    loginPage.clickLoginButton()
+    loginPage.fillEmail(userData.adminUser.email)
+    loginPage.fillPassword(userData.adminUser.password)
+    loginPage.clickSignIn()
+    lobbyPage.clickEditButton(numbersData.places.first)
+    heroPage.clearFields()
+    heroPage.submitHero()
+    heroPage.checkAlert(userData.alertNotification.name)
+    heroPage.checkAlert(userData.alertNotification.price)
+    heroPage.checkAlert(userData.alertNotification.fans)
+    heroPage.checkAlert(userData.alertNotification.saves)
   })
 })

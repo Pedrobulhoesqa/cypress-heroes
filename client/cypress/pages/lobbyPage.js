@@ -130,8 +130,8 @@ class LobbyPage {
     cy.get(deleteButtons).find('button').eq(1).click().wait(1500);
   }
 
-  clickEditButton(first, second, third){
-    cy.get(this.selectorsList().heroCard).eq(first, second, third)
+  clickEditButton(first, second, third, one, two, three){
+    cy.get(this.selectorsList().heroCard).contains(first, second, third, one, two, three)
       .find(this.selectorsList().editButton).click().wait(1500)
       .location('pathname').should('match', /edit/)
     }
@@ -139,6 +139,10 @@ class LobbyPage {
   clickCreateHeroButton() {
     cy.get(this.selectorsList().createButton).should('be.visible').click().wait(800)
       .location('pathname').should('equal', '/heroes/new')
+  }
+
+    checkDeletedHeroCard(one, two, three){
+    cy.get(this.selectorsList().heroCard).eq(one, two, three).should('not.exist')
   }
 }
 

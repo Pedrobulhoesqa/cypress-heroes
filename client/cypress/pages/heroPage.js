@@ -1,6 +1,7 @@
 class HeroPage {
     selectorsList() {
         const selectorsHero ={
+            createHero:"[href='/heroes/new']",
             nameField:"[data-cy='nameInput']",
             priceField: "[data-cy='priceInput']",
             fansField: "[data-cy='fansInput']",
@@ -8,14 +9,26 @@ class HeroPage {
             powersSelector: "[data-cy='powersSelect']",
             avatarField:  "[data-cy='avatarFile']",
             pageButtons: "button",
-            alertCreatNotification: ".text-red-500",
+            alertNotification: ".text-red-500",
         }
         
         return selectorsHero
 
     }
-    fillNameField() {
-        cy.get(this.selectorsList().nameField).clear().type("Super Test", { delay: 50 })
+
+    clearFields() {
+        cy.get(this.selectorsList().nameField).clear()
+          .get(this.selectorsList().priceField).clear()
+          .get(this.selectorsList().fansField).clear()
+          .get(this.selectorsList().savesField).clear()
+    }
+    createHeroButton() {
+        cy.get(this.selectorsList().createHero).click(), { delay: 50 }
+        cy.location('pathname').should('equal', '/heroes/new')
+    }
+
+    fillNameField(one, two, three) {
+        cy.get(this.selectorsList().nameField).clear().type(one, two, three, { delay: 50 })
     }
 
     fillPriceField() {
@@ -35,7 +48,7 @@ class HeroPage {
     }
 
     selectAvatar() {
-        cy.get(this.selectorsList().avatarField).click()
+        cy.get(this.selectorsList().avatarField).selectFile('./cypress/fixtures/avatar.png');
     }  
     
     submitHero() {
@@ -44,6 +57,9 @@ class HeroPage {
     
     deleteHero() {
         cy.get(this.selectorsList().pageButtons).contains("Delete Hero").click()
+    }
+    checkAlert(name, price, fans, saves, powers){
+        cy.get(this.selectorsList().alertNotification).should('contain', name, price, fans, saves, powers)
     }
 }
 
