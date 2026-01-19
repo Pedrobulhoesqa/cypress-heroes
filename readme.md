@@ -18,11 +18,22 @@ After that a few more things need to be set up (databases and such), to do so ru
 npm run setup
 ```
 
-
 To launch the app for development, run:
 
 ```sh
 npm run dev
+```
+
+To access the test first enter the client folder:
+
+```sh
+cd cypress-heroes/client
+```
+
+After that you can run cypress normaly with:
+
+```sh
+npx cypress open
 ```
 
 This will start both the client and server apps in dev mode. The site will be
