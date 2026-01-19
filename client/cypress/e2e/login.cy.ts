@@ -1,8 +1,10 @@
 import LoginPage from '../pages/loginPage.js'
+import LobbyPage from '../pages/lobbyPage.js'
 import numbersData from '../fixtures/numbersData.json'
 import userData from '../fixtures/userData.json'
 
 const loginPage = new LoginPage()
+const lobbyPage = new LobbyPage()
 
 describe('Login Test', () => {
   it('Login with normal user', () => {    
@@ -12,6 +14,7 @@ describe('Login Test', () => {
     loginPage.fillEmail(userData.normalUser.email)
     loginPage.fillPassword(userData.normalUser.password)
     loginPage.clickSignIn()
+    lobbyPage.listHeroCards()
     loginPage.clickLogoutButton()
   })
 
@@ -22,6 +25,7 @@ describe('Login Test', () => {
     loginPage.fillEmail(userData.adminUser.email)
     loginPage.fillPassword(userData.adminUser.password)
     loginPage.clickSignIn()
+    lobbyPage.listHeroCards()
     loginPage.clickLogoutButton()
   })
 })

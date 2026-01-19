@@ -26,14 +26,14 @@ describe('Edit Hero', () => {
     heroPage.submitHero()
   })
 
-  it.only('Delete Hero', () => {    
+  it('Delete Hero', () => {    
     loginPage.accessHomePage()
     loginPage.checkHomePage()
     loginPage.clickLoginButton()
     loginPage.fillEmail(userData.adminUser.email)
     loginPage.fillPassword(userData.adminUser.password)
     loginPage.clickSignIn()
-    lobbyPage.clickEditButton(userData.herosList.three)
+    lobbyPage.clickEditButton(numbersData.places.first)
     heroPage.deleteHero()
     lobbyPage.clickYesTrashButton()
   })

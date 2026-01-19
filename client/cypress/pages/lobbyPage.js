@@ -21,6 +21,10 @@ class LobbyPage {
   return selectorsHome
   } 
 
+  listHeroCards(){
+    cy.get(this.selectorsList().heroCard).its('length')
+  }
+
   checkHeroCard(first, second, third){
     cy.get(this.selectorsList().heroCard).eq(first, second, third).should('be.visible')
   }
@@ -131,7 +135,7 @@ class LobbyPage {
   }
 
   clickEditButton(first, second, third, one, two, three){
-    cy.get(this.selectorsList().heroCard).contains(first, second, third, one, two, three)
+    cy.get(this.selectorsList().heroCard).eq(first, second, third, one, two, three)
       .find(this.selectorsList().editButton).click().wait(1500)
       .location('pathname').should('match', /edit/)
     }
