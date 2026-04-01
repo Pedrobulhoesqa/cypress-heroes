@@ -15,7 +15,7 @@ jobs:
                 start: |
                   npm run setup
                   npm run dev
-                  cd client/
+                  cd cypress-heroes/client
                 build: 'npm run build'
 
             - uses: actions/upload-artifact@v4
