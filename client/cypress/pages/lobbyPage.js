@@ -15,7 +15,8 @@ class LobbyPage {
       modalDelete: '.modal-container > .open',
       deleteButtons: '.justify-end',
       editButton: '[data-cy="pencil"]',
-      createButton: "[href='/heroes/new']"
+      createButton: "[href='/heroes/new']",
+      heroList: 'li'
     }
         
   return selectorsHome
@@ -25,8 +26,8 @@ class LobbyPage {
     cy.get(this.selectorsList().heroCard).its('length')
   }
 
-  checkHeroCard(first, second, third){
-    cy.get(this.selectorsList().heroCard).eq(first, second, third).should('be.visible')
+  checkHeroCard(one, two, three){
+   cy.get(this.selectorsList().heroCard).contains(one, two, three).should('be.visible')
   }
 
   clickLikeButtonHero(first, second, third){
@@ -120,7 +121,7 @@ class LobbyPage {
   
   clickTrashButton(first, second, third) {
     cy.get(this.selectorsList().heroCard).eq(first, second, third)
-      .find(this.selectorsList().trashButton).click().wait(1000)
+      .find(this.selectorsList().trashButton).click()
     cy.get(this.selectorsList().modalDelete).should('be.visible')
   }
 

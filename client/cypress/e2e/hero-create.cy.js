@@ -9,7 +9,7 @@ const lobbyPage = new LobbyPage()
 const heroPage = new HeroPage()
 
 describe('Create a New Hero', () => {
-    it('Submit New Hero in Lobby Page', () => {    
+    it.only('Submit New Hero in Lobby Page', () => {    
     loginPage.accessHomePage()
     loginPage.checkHomePage()
     loginPage.clickLoginButton()
@@ -24,6 +24,8 @@ describe('Create a New Hero', () => {
     heroPage.selectPowers()
     heroPage.selectAvatar()
     heroPage.submitHero()
+    loginPage.checkHomePage()
+    lobbyPage.checkHeroCard(userData.herosList.one)
   })
 
     it('Submit New Hero in Edit Hero Page', () => {

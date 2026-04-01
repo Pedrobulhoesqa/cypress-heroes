@@ -1,0 +1,29 @@
+name: CI-heroes
+
+on: [push]
+jobs:
+    build-test:
+        runs-on: ubuntu-20.04
+        steps:
+
+            - name: Checkout
+              uses: actions/checkout@v3
+
+            - name: Cypress test
+              uses: cypress-io/github-action@v5
+              with:
+                start: |
+                  npm run setup
+                  npm run dev
+                  cd client/
+                build: 'npm run build'
+
+            - uses: actions/upload-artifact@v3
+              if: always()
+              with:
+                name: Cypress Result
+                path: |
+                  cypress/screeshots
+                  cypress/videos
+                  cypress/results
+                if-no-files-found: ignore
