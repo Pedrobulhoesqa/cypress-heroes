@@ -19,5 +19,5 @@ jobs:
           start: |
             npm run setup
             npm run dev
-          working-directory: client
           wait-on: http://localhost:3000
+          project: client
